@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="{{ path('profile_index') }}">Mes contacts</a></li>
+                    <li class="list-group-item"><a href="{{ path('profile_settings') }}">Mon compte</a></li>
+                    <li class="list-group-item"><a href="{{ path('profile_import') }}">Importer des utilisateurs</a></li>
+                    <li class="list-group-item"><a href="{{ path('logout') }}">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% include 'flash_message.html.twig' %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

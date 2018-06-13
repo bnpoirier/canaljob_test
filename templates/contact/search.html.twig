@@ -1,0 +1,29 @@
+{% extends 'base_with_sidebar.html.twig' %}
+
+{% block title %}{{ query }}{% endblock %}
+
+{% block content %}
+<h1>Résultats pour "{{ query }}"</h1>
+    <table class="table table-borderless">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 20px;">#</th>
+            <th scope="col">Nom et prénom</th>
+            <th scope="col">Email</th>
+        </tr>
+        </thead>
+            <tbody>
+            {% for result in results %}
+                <tr>
+                    <th scope="row">
+                        <a class="fa fa-plus contact-add" data-target="{{ path('contact_add', {'contact': result.id}) }}" href="#">&nbsp;</a>
+                    </th>
+                    <td><a href="{{ path('contact_see', {'user': result.id}) }}">{{ result.firstname~' '~result.lastname }}</a></td>
+                    <td>{{ result.email }}</td>
+                </tr>
+            {% else %}
+                <td colspan="3">Aucun résultat pour <strong>{{ query }}</strong>.<br>Assurez-vous d'avoir bien entré correctement le nom du contact</td>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

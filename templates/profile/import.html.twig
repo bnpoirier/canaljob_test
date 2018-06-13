@@ -1,0 +1,9 @@
+{% extends 'base_with_sidebar.html.twig' %}
+
+{% block title %}Importer de nouveaux utilisateurs{% endblock %}
+
+{% block content %}
+    <h1>Importer de nouveaux utilisateurs</h1>
+    <p>Sélectionnez un fichier CSV puis appuyez sur "Importer". Seul les fichiers CSV sont acceptés.</p>
+    {{ form(form) }}
+{% endblock %}

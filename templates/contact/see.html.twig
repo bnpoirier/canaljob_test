@@ -1,0 +1,23 @@
+{% extends 'base_with_sidebar.html.twig' %}
+
+{% block title %}{{ user.profile.fullname }}{% endblock %}
+
+{% block content %}
+<h1>{{ user.profile.fullname }}</h1>
+    <div class="contact-property">
+        <span>Nom</span>
+        {{ user.profile.firstname }}
+    </div>
+    <div class="contact-property">
+        <span>Prénom</span>
+        {{ user.profile.lastname }}
+    </div>
+    <div class="contact-property">
+        <span>Nom</span>
+        {{ user.email }}
+    </div>
+    <div class="contact-property">
+        <span>Nom</span>
+        {{ user.profile.address }}
+    </div>
+{% endblock %}

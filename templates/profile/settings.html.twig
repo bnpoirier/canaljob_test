@@ -1,0 +1,10 @@
+{% extends 'base_with_sidebar.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Modifier mes paramètres{% endblock %}
+
+{% block content %}
+    <h1>Modifier mes paramètres</h1>
+    <div class="alert alert-warning"><strong>ATTENTION ! </strong> Inutile de re spécifier le mot de passe. Celui-ci sera ignoré si vous ne souhaitez pas le changer</div>
+    {{ form(form) }}
+{% endblock %}

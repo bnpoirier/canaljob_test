@@ -1,0 +1,29 @@
+{% extends 'base_with_sidebar.html.twig' %}
+
+{% block title %}Mes contacts{% endblock %}
+
+{% block content %}
+    <h1>Mes contacts</h1>
+    <table class="table table-borderless">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom et prénom</th>
+            <th scope="col">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <th scope="row" style="width: 20px;">
+                <a class="fa fa-trash contact-delete" data-target="{{ path('contact_delete', {'contact': contact.id}) }}" href="#">&nbsp;</a>
+            </th>
+            <td><a href="{{ path('contact_see', {'user': contact.id}) }}">{{ contact.profile.fullname }}</a></td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% else %}
+            <td colspan="3">Vous n'avez actuellement aucun contact ! <br>Faites une recherche et commencez à ajouter vos contacts !</td>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
